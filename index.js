@@ -20,6 +20,15 @@ app.use(cors())
 
 
 // without mongoose we can use mongodb native driver
+//heroku
+const path = require("path");
+	const port = process.env.PORT || 3005
+	app.use(express.static(path.join(__dirname,"client/build")))
+
+
+	app.get("*",(req,res)=>{
+    		res.sendFile(path.join(__dirname + "/client/build/index.html"))
+	})
 
 
 app.use('/',router)//-->1st approach //localhost.3005/
@@ -29,15 +38,6 @@ app.use('/categories',categoriesRouter) //-->2nd approach//localhost:3005/catego
 app.use('/tags', tagsRouter)
 app.use('/users',usersRouter)
 
-//heroku
-const path = require("path");
-	const port = process.env.PORT || 3005
-	app.use(express.static(path.join(__dirname,"client/build")))
-
-
-	app.get("*",(req,res)=>{
-    		res.sendFile(path.join(__dirname + "/client/build/index.html"))
-	}) 
 
 
 app.listen(port,()=>{

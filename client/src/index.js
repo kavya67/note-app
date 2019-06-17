@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
-import _ from 'lodash'
+
 
 //notes
 import NotesList from './components/notes/List'

@@ -9,7 +9,7 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "dev": "concurrently \"nodemon index.js\" \"npm start --prefix=client\" "
   },
-  "engine": {
+  "engines": {
     "node": "10.15.1",
     "npm": "^6.4.1"
   },
