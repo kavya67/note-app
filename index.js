@@ -13,7 +13,7 @@ const router = require('./config/routes')
 //2nd approach
 const categoriesRouter = require('./app/controllers/categoriesController')
 const tagsRouter = require('./app/controllers/tagController')
-const { usersRouter } = require('./app/controllers/UserController')
+const  usersRouter  = require('./app/controllers/UserController')
 
 
 
