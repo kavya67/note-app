@@ -97,14 +97,14 @@ class App extends React.Component{
                     <Route path="/notes/:id" component={NotesShow} exact/>
                     <Route path="/categories" component={CategoryList}/> 
                     <Route path="/users/logout" render={(props)=>{
-                    return <NoteLogout {...props} handleAuth={this.handleAuth}/> }} exact={false}/>
+                    return <NoteLogout {...props} handleAuth={this.handleAuth}/> }} exact={true}/>
                     </Switch>
                     </div>
                     )}
                     
                     
-                            </div>
-                        </BrowserRouter>
+                    </div>
+                    </BrowserRouter>
         )
     }
 }

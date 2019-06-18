@@ -15,21 +15,8 @@ const categoriesRouter = require('./app/controllers/categoriesController')
 const tagsRouter = require('./app/controllers/tagController')
 const  usersRouter  = require('./app/controllers/userController')
 
-
-
-
 app.use(express.json())
 app.use(cors())
-
-
-// without mongoose we can use mongodb native driver
-//heroku
-
-	
-	
-
-
-	
 
 app.use('/',router)//-->1st approach //localhost.3005/
 // app.use('/notes',notesRouter)
