@@ -18,6 +18,7 @@ class NoteList extends React.Component{
                 'x-auth': localStorage.getItem('userAuthToken')
             }} )
         .then(response=>{
+            console.log(response.data)
             this.setState(()=>({
                 notes:response.data
             }))
@@ -64,28 +65,29 @@ class NoteList extends React.Component{
     render(){
         return(
             <div>
+                {/* {
+                    this.state.notes.length
+                } */}
                 <h1>Listing Notes - {this.state.notes.length}</h1>
                 <h2>Pinned</h2>
                 <ul>
-               
-
-                {this.state.notes.map(note=>{
+                {(this.state.notes.length >=1) && (this.state.notes.map(note=>{
                     return (note.isPinned === true && <li key={note._id}><Link to={`/notes/${note._id}`}>{note.title}</Link><button onClick={()=>{
                         this.handlePin(note)
                     }}>Unpin</button><button onClick={()=>{this.handleDelete(note)}}>x</button>
                        </li>)
-                })}
+                }))}
                        
                 </ul>
                 <h2>Others</h2>
                 <ul>
                
-                    {this.state.notes.map(note=>{
+                    {(this.state.notes.length >=1) && (this.state.notes.map(note=>{
                     return (note.isPinned === false && <li key={note._id}><Link to={`/notes/${note._id}`}>{note.title}</Link><button onClick={()=>{
                         this.handlePin(note)
                     }}>pin</button><button onClick={()=>{this.handleDelete(note)}}>x</button>
                        </li>)
-                })}
+                }))}
                        
                 </ul>
 

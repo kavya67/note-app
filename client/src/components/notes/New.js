@@ -18,6 +18,7 @@ class NotesNew extends React.Component{
                 'x-auth': localStorage.getItem('userAuthToken')
             }
         })
+        
         .then(response=>{
             //change from one component to another i.e Form to New
             if(response.data.hasOwnProperty('errors')){

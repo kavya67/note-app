@@ -16,7 +16,11 @@ class NotesEdit extends React.Component{
     componentDidMount(){
         console.log('cdm - to get note information')
         const id = this.props.match.params.id
-        axios.get(`/notes/${id}`)
+        axios.get(`/notes/${id}`, {
+            headers:{
+                'x-auth':localStorage.getItem('userAuthToken')
+            }
+        })
         .then(response=>{
             
             this.setState(()=>({
@@ -28,16 +32,16 @@ class NotesEdit extends React.Component{
     }
 
     handleSubmit(formData){
-        axios.put(`/notes/${this.state.note._id}`,formData, {
-            headers: {
-                'x-auth': localStorage.getItem('userAuthToken')
+        axios.put(`/notes/${this.state.note._id}`,formData,{
+            headers:{
+                'x-auth':localStorage.getItem('userAuthToken')
             }
         })
         .then((response)=>{
             console.log(response.data)
             if(response.data.hasOwnProperty('errors')){
                 console.log(response.data.errors)
-              
+               
             }else{
                 this.props.history.push(`/notes/${response.data._id}`)
             }

@@ -38,7 +38,9 @@ module.exports.show = (req, res) => {
         user:req.user._id,
         _id:id
     }).populate('category').populate('tags.tag',['name'])
+
     .then((note)=>{
+        console.log(note)
         if(!note){
             res.json({})
         }

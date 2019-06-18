@@ -73,12 +73,12 @@ class App extends React.Component{
                     
                     
                     
-                    <Switch>
+                    
                     {/* logged out routes */}
                     {!this.state.isAuthenticated && (
                     <div>
                         <Route path="/users/register" component={NoteRegister} exact={true}/>
-                        <Route path="/users/login" render={(props)=>{
+                        <Route path="/users/login"   render={(props)=>{
                         return <NoteLogin {...props } handleAuth={this.handleAuth}/>
                     }} exact={true}/>
                     </div>
@@ -86,9 +86,10 @@ class App extends React.Component{
                     {/* <logged in router */}
                     {this.state.isAuthenticated &&(
                     <div>
-                    <Route path="/users/account" component={NoteAccount} exact/>
+                    <Switch>
+                    <Route path="/users/account" component={NoteAccount} exact={true}/>
                     <Route path="/notes" component={NotesList} exact={true}/>
-                    <Route path="/notes/new" component={NotesNew}/>
+                    <Route path="/notes/new" component={NotesNew} exact={true}/>
                     <Route path="/notes/edit/:id" component={NotesEdit} exact={true}/>
                     <Route path="/categories/edit/:id" component={CategoryEdit}/>
                     <Route path="/categories/new" component={CategoryNew}/> 
@@ -97,10 +98,11 @@ class App extends React.Component{
                     <Route path="/categories" component={CategoryList}/> 
                     <Route path="/users/logout" render={(props)=>{
                     return <NoteLogout {...props} handleAuth={this.handleAuth}/> }} exact={false}/>
+                    </Switch>
                     </div>
                     )}
                     
-                    </Switch>
+                    
                             </div>
                         </BrowserRouter>
         )

@@ -62,7 +62,7 @@ class NotesForm extends React.Component{
         console.log('cdm - getting dcategories for drop down')
         axios.get(`/categories`)
         .then((response)=>{
-            // console.log(response.data)
+            console.log(response.data)
            
             this.setState(()=>({categories:response.data}))
         })
