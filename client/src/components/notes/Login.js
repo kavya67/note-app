@@ -27,14 +27,14 @@ handleSubmit(e){
     console.log(formData)
     axios.post(`/users/login`,formData)
     .then(response=>{
-        console.log(response.data)
-        if(response.data.errors){
-            alert(response.data.errors)
-        }else{
+        console.log(response.token)
+        if(response.data.token){
             const token=response.data.token
             localStorage.setItem('userAuthToken',token)
             this.props.handleAuth(true)
-            this.props.history.push('/users/account') 
+            this.props.history.push('/users/account')
+        }else{
+            alert(response.data.errors)
         }
     })
 

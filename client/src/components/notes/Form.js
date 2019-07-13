@@ -85,8 +85,8 @@ class NotesForm extends React.Component{
 
     
     render(){
-        console.log(this.state.selectedTags)
-        console.log('Form render')
+        // console.log(this.state.selectedTags)
+        // console.log('Form render')
         return(
             <div>
                 <form onSubmit={this.handleSubmit}> 
